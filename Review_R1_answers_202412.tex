@@ -1,0 +1,146 @@
+% LaTeX rebuttal letter example. 
+% 
+% Copyright 2019 Friedemann Zenke, fzenke.net
+%
+% Based on examples by Dirk Eddelbuettel, Fran and others from 
+% https://tex.stackexchange.com/questions/2317/latex-style-or-macro-for-detailed-response-to-referee-report
+% 
+% Licensed under cc by-sa 3.0 with attribution required.
+% See https://creativecommons.org/licenses/by-sa/3.0/
+% and https://stackoverflow.blog/2009/06/25/attribution-required/
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum} % to generate some filler text
+\usepackage{fullpage}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{graphicx}
+\usepackage{breakcites}
+\usepackage{url}
+
+% import Eq and Section references from the main manuscript where needed
+% \usepackage{xr}
+% \externaldocument{manuscript}
+
+% package needed for optional arguments
+\usepackage{xifthen}
+\newcommand*{\blue}{\textcolor{blue}}
+
+
+\begin{document}
+
+
+
+\section*{Response to the reviewers of 2024GL113042 }
+
+% General intro text goes here
+We thank the reviewers for their critical assessment of our work, their positive feedback and very useful suggestions. 
+In the following we address their concerns point by point.\\
+
+\noindent
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ |c|c| } 
+ \hline
+ {\itshape italic text  } & {\itshape Comments of the reviewers}  \\ 
+ roman text               & Our answers or comments   \\ 
+ \blue{blue text}         & \blue{Verbatim quotes from the manuscript}  \\ 
+ \hline
+\end{tabular}
+\end{table}
+
+\noindent
+A manuscript is included with highlighted differences and modifications applied during revision is submitted as well. 
+
+
+\subsection*{Editor Comment}
+\textit{Thank you for submitting "Observation of falling snowflakes orientation at sheltered and unsheltered sites" [Paper \#2024GL113042] to Geophysical Research Letters. I have received 2 reviews of your manuscript, which are included below and/or attached. As you can see, the reviews indicate that major revisions are needed before we can consider proceeding with your paper. I am therefore returning the paper to you so that you can make the necessary changes.
+}
+
+\newpage
+\subsection*{Reviewer 1}
+
+\textit{The manuscript is well-written. The authors did a great job addressing the observational issues with the Multi-Angel Snowflake Camera (MASC). I particularly appreciate the reverse-engineering numerical experiments: idealized and realistic objects were generated to evaluate various methods for describing the orientation of those objects. The findings from the numerical experiment, together with the analysis of the in-situ data, will be a valuable addition to the literature and a useful resource for the remote sensing community. I recommend the manuscript be published in GRL, after the following issues are addressed:}
+
+\subsubsection*{Major comments:}
+\begin{enumerate}
+    \item \textit{The discussion about the impact of the environmental winds on the orientation of the snowflakes is not sound. Wind speed alone may not be sufficient to capture this impact. The distribution of wind components likely plays a more significant role.}
+\end{enumerate}
+
+\subsubsection*{Minor comments:}
+\begin{enumerate}
+    \item \textit{Including results on graupel in a study focused specifically on snowflakes raises questions about the sampling method.}
+\end{enumerate}
+
+\clearpage
+\subsection*{Reviewer 2}
+\textit{The authors present an interesting analysis of the orientation behavior of ice crystals and snowflakes during falling. The analysis is based on a large database of ground-based in-situ observations (Multi-Angle Snowflake Camera). Dependencies of the orientation on observational setups (wind mitigation), environmental parameters and particle properties are discussed. A simulation experiment further reveals important impacts of using different methods to estimate the average orientation angle from multiple cameras.}\\
+
+
+\textit{Overall, I find the paper very well written and also the non-expert reader can easily follow. I have only a number of minor comments and suggestions. One might of course question whether the topic is of interest to a wider community, as it is a rather specific topic. However, I see the topic itself as highly relevant for active and passive microwave remote sensing but also for estimation of ice particle sedimentation velocity. Therefore, I recommend the manuscript for publication in GRL.}
+
+\subsubsection*{Comments:}
+
+\begin{enumerate}
+    
+    \item \textit{There is a very recent laboratory study about ice particle orientation which should be added to reference list and I also highly suggest to discuss their results. They appear to be slightly contradictory to your study:} \cite{Stout_ACP_2024} \\
+
+    We thank the reviewer for this, extremely relevant, recommendation.  This high quality study, with laboratory experiments using snowflake replicas in a liquid solution shows that planar crystals may be falling with regimes that do not have a preferential orientation around 0$^\circ$. We believe that, given some of the assumptions of~\cite{Stout_ACP_2024}, their results are somehow complementary to our work and point out to the need to better understand the role of turbulence in orientation of snow particles. Regarding the cited study, we have the following comments:
+    \begin{itemize}
+        \item A relevant limitation of this work is that "it  only considers quiescent conditions, as the authors want to know under what conditions particle instability still occurs, even without the addition of turbulence.". This is quite different with respect to our field-based experiments.
+        \item The study focuses on planar crystals and it uses 12 sub-types of this  hydrometeors (from plates to dendrites). In our case, the planar crystals are all classified together into an individual class, which is also one of the most difficult to classify with the MASC and to observe (given the 35 microns resolution of the MASC itself). In this sense our study is coarser and cannot go to this level of detail, which could be a reason why we do not observe such behavior. 
+        \item Interestingly, another recent study~\cite{Koebschall_EF_2023} using replicas of snow aggregates and a liquid solution, showed instead that the particles tend to orient such that the area projected in the direction of flow is maximized, which is the type of behavior that is consistent with our observations. This is very interesting as two separate indoor studies, with similar methods, seem to indicate that individual crystals of planar type and aggregate snowflakes may be behaving differently regarding preferential orientation.
+        \item It is unfortunate that the study reports, as possible backup evidence and as driving motivation, that previous studies using MASC also showed off-zero preferential orientations. This is exactly what we showed, in our paper, to be due to the bias of averaging \textbf{absolute value} of orientation estimates taken from different viewpoints and it was one of the driving motivation of our publication.  
+    \end{itemize}
+
+    We now modified the manuscript to give some space to commenting and elaborating on the findings of~\cite{Stout_ACP_2024}. At first, we include this study in Table~1. 
+
+
+    
+    
+    \item \textit{L. 37: Not sure if "standard deviation" is a term that is suited for the plain language summary. Maybe one can formulate simpler: "typical variability of the orientation angle\dots"}\\
+
+    \noindent
+    We agree with the reviewer, and we implemented their suggestion. \\
+
+    \item Introduction: Honestly, comparing it with the other sections, I find the introduction a bit weak. Considering the wider audience addressed by GRL, I think the importance of ice particle orientation should be emphasized and explained more. It is certainly true that most radar polarimetric quantities are sensitive to orientation (L. 50-52). But this is by far not all in my opinion. Particle orientation also impacts the scattering signal in passive microwave (MW) observations (both from space and from ground). Many space-borne MW sensors are also polarization-sensitive. Considering the enormous efforts undertaken for example by ECMWF and other services to assimilate those all-sky MW observations, this aspect should be mentioned and cited. Another aspect is that an ice particle falling with a preferred orientation will have a very different sedimentation velocity. So characterizing the particle orientation is quite key to simulate its terminal velocity (which is quite an important parameter in any cloud model). Ice particle orientation is also relevant for determining cloud radiative properties such as optical depth or albedo.
+
+    \item \textit{L. 46: It would be good to add a reference for this statement. I question a bit whether this general statement is actually true. I completely agree for plate-like crystals or large aggregates. But what is for example about bullet rosettes in high cirrus clouds? Or columns/needles? Do we have solid knowledge about their falling orientation? Also the references you provide a few sentences later (\cite{Noel_JAMC_2005,Tinklenberg_JFM_2023}) focus only on planar crystals.}\\
+
+
+    \item \textit{L. 47: What do you mean by "relatively simple"? Personally, I find all those ice particles terribly complicated.}\\
+    
+    In this case our intention was to differentiate between individual crystals (the shape of which can indeed be complicated, but that usually have a clear symmetry) from aggregates and graupel, which are composed by many crystals with additional contribution of riming, making it hard to understand the individual shapes or define a clear geometry. Our phrasing was confusing and this sentence needed to be reformulated in any case (see previous points). It now reads:
+
+     \hl{TO DO}
+    
+    \item \textit{Table 1: I like the idea of having a table summarizing previous studies. But are there no studies that looked at columns or needles?}\\
+
+    \cite{Klett_JAS_1995, Reinking_JAMC_1997}
+
+
+
+    \item \textit{L. 140: Parenthesis around the reference Leinonen et al., 2021 should be removed.}
+    
+    \noindent
+    It is now corrected.\\
+
+    \item \textit{L. 157: Why "approximately"?}
+
+    \noindent
+    The reviewer is right. The sentence now reads:\\
+    \blue{With \textit{Mean\_Abs} the final estimate would be 10$^\circ$, while for \textit{Mean} it would be 3.33$^\circ$}\\
+
+
+    \item L. 211-215: One general thought regarding the fact that radar studies most often "retrieve" smaller range of orientation angles: If one looks at vertically pointing radar images, one always finds the lowest few hundred meters much more turbulent than the ice and snow cloud aloft. Surface friction is certainly responsible for this effect. So I am wondering if the often observable low turbulence in many ice clouds (for example indicated by small spectrum width) could be the reason why the orientation angle distribution is more narrow? Of course, the discrepancy might also be connected to unrealistic scattering properties often assumed by polarimetric shape retrievals.
+
+    \item Connected to this topic but even more complicated to answer is why some polarimetric radar observations seem to indicate a certain non-zero distribution of the particle orientation: \cite{Melnikov_JAOT_2013}
+\end{enumerate}
+
+\bibliographystyle{apalike}
+\bibliography{./references.bib}
+
+\end{document}
